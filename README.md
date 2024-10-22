@@ -19,4 +19,10 @@ Les points fonctionnent de la maniere suivante:
 - une action collective apporte plus de point qu'une action personnnelle
 - les équipes et entreprise accumulent des points et selon le nombre de points maximum a gagné dans le jeu et le nombre de point de l'équipe, le jeu récompense l'équipe avec un badge (5 badges sont pour le moment disponible)
 
-  
+
+### Statistique
+La page des statistiques se bases sur différentes valeurs : 
+- diagramme radars des compétences sur les différents domaines (diagramme pour chaque équipes auquel l'utilisateur appartient, diagramme personnel)
+- rank (rank sur chaque domaine)
+
+
