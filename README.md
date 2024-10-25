@@ -1,28 +1,29 @@
-# MyGreenImpact
+# MyGreenImpact 
+## Un Serious Game pour un Numérique Responsable
 
-This web project is developed using PHP, CSS, HTML, and JavaScript and is designed as a serious game focused on the themes of ecology and responsible digital practices for companies. The objective is to raise awareness and educate employees about sustainable digital practices, such as reducing energy consumption, minimizing electronic waste, and promoting environmentally friendly decisions within their digital workspaces.
+Le projet MyGreenImpact est un site web sous forme de serious game conçu pour sensibiliser et éduquer les employés aux pratiques numériques durables et responsables. Développé en PHP, CSS, HTML et JavaScript, ce jeu encourage les entreprises à réduire leur consommation d’énergie, minimiser les déchets électroniques et promouvoir des décisions écologiques dans leur espace numérique. Les participants représentent leur entreprise et réalisent des défis et activités qui améliorent leur compréhension et leur mise en œuvre des stratégies Green IT.
 
-Participants in the game represent their companies and engage in various challenges and activities designed to improve their understanding and implementation of green IT strategies. These activities may include tasks such as optimizing resource usage, choosing sustainable technologies, or improving digital accessibility.
+### Page de Connexion / Inscription
+La page d’inscription permet aux utilisateurs de créer un compte en fournissant une adresse e-mail, un mot de passe et le nom de leur entreprise. Une fois l’inscription effectuée, un e-mail de validation est envoyé pour confirmer l’adresse, avec vérification que l'adresse e-mail correspond bien à l’entreprise sélectionnée.
 
+### Page de Profil
+La page de profil permet aux utilisateurs de gérer leurs informations personnelles (e-mail, mot de passe), de consulter leur appartenance à une entreprise, de se déconnecter et de supprimer leur compte. Cette page ne propose aucune gestion d’équipe.
 
-## Page
-### Connection/inscription
-La page d'inscription permet donc l'inscription grâce à une adresse mail, un mot de passe et une entreprise. Une fois fait, un mail de validation devra être réaliser et donc une autre page de confiramtion s'affichera. Une vérification sur l'email de l'utilisateur sera réaliser afin d'être sur qu'il appartient à l'entreprise selectionné
+### Page de Statistiques
+La page des statistiques donne accès à plusieurs indicateurs de performance et à la gestion d’équipe. L’utilisateur peut y consulter les statistiques de son entreprise, ses propres performances et celles de toutes les équipes de son entreprise. C’est à partir de cette page qu’il peut choisir de rejoindre ou quitter des équipes. Les statistiques sont présentées sous différentes formes :
 
-### Profile
-La page de profile permet de modifier ses infos personnelles (email, mdp), elle permet aussi de voir son entreprise et en cliquant dessus, voir les équipes de l'entreprise ainsi que la posibilité de les rejoindre, de quitter. L'utilisateur peut rejoindre autant d'équipe qu'il veut tant qu'elle appartient a son enetreprise. Il peut aussi ne rejoindre aucune équipe et dans ce cas ci, son équipe serait simplement son entreprise. Il peut aussi en créer. Aucune vérification ou confirmation n'est attendu de la part du créateur de l'équipe.
+Diagrammes radars des compétences dans chaque domaine, disponibles pour chaque équipe et pour l’utilisateur individuellement.
+Classement (rank) : des classements sont disponibles pour chaque domaine d’action, affichant les performances individuelles, d’équipe et de l’entreprise.
 
-### Serious game
-La page de serious game est la pour montrer les tache à réaliser et que l'utilisateur soit en mesure de cocher et décocher les actions réalisées. Il existe plusieur type d'action, les actions utilisateurs, et les actions de groupe. Chaque action appartient a un domaine et a un niveau (débutant, intermédiaire et confirmer). Une action collective cocher, rapport des points à la fois pour la potentiel équipe et aussi à l'entreprise. Les actions individuelles apporte des points pour les individus personnellement mais aussi pour l'entreprise et la potentiel équipe.
-Les points fonctionnent de la maniere suivante:
-- plus l'action est d'un niveau important plus elle apporte des points
-- une action collective apporte plus de point qu'une action personnnelle
-- les équipes et entreprise accumulent des points et selon le nombre de points maximum a gagné dans le jeu et le nombre de point de l'équipe, le jeu récompense l'équipe avec un badge (5 badges sont pour le moment disponible)
+### Page de Jeu (Serious Game)
+Cette page montre les tâches à réaliser sous forme de cases à cocher. Les utilisateurs peuvent cocher ou décocher les actions qu’ils ont effectuées. Il existe plusieurs types d’actions :
 
+Actions individuelles : elles rapportent des points à l’utilisateur et également à l’entreprise (et potentiellement à son équipe).
+Actions collectives : les points obtenus sont partagés entre l’utilisateur, son équipe (si applicable), et l’entreprise.
+Les actions sont classées par niveau de difficulté (débutant, intermédiaire et confirmé) et sont réparties en domaines spécifiques. La répartition des points fonctionne ainsi :
 
-### Statistique
-La page des statistiques se bases sur différentes valeurs : 
-- diagramme radars des compétences sur les différents domaines (diagramme pour chaque équipes auquel l'utilisateur appartient, diagramme personnel)
-- rank (rank sur chaque domaine)
+Plus l’action est de niveau élevé, plus elle rapporte de points.
+Les actions collectives rapportent davantage que les actions personnelles.
+Les équipes et entreprises accumulent des points et peuvent obtenir des badges en récompense pour leurs efforts collectifs. Cinq badges sont disponibles à ce jour.
 
-
+MyGreenImpact encourage ainsi les entreprises à adopter des pratiques numériques plus durables, en offrant aux utilisateurs un moyen de suivre leur progression, de participer à des actions concrètes, et de consulter des statistiques d'évolution dans un cadre ludique et interactif.
