@@ -26,4 +26,8 @@ Plus l’action est de niveau élevé, plus elle rapporte de points.
 Les actions collectives rapportent davantage que les actions personnelles.
 Les équipes et entreprises accumulent des points et peuvent obtenir des badges en récompense pour leurs efforts collectifs. Cinq badges sont disponibles à ce jour.
 
+### Propositions de Défis
+Sur la page de serious game, les utilisateurs ont la possibilité de proposer de nouveaux défis pour chaque domaine et niveau. Cependant, ces défis proposés ne sont pas automatiquement ajoutés. Ils sont soumis à la validation d’un modérateur, qui peut les approuver ou les refuser. Le modérateur dispose également de fonctionnalités spécifiques pour ajouter et supprimer des défis, ce qui garantit la qualité et la pertinence des actions disponibles pour les participants.
+
+
 MyGreenImpact encourage ainsi les entreprises à adopter des pratiques numériques plus durables, en offrant aux utilisateurs un moyen de suivre leur progression, de participer à des actions concrètes, et de consulter des statistiques d'évolution dans un cadre ludique et interactif.
