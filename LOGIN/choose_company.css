@@ -1,0 +1,16 @@
+/* Un style basique pour la liste de suggestions */
+#suggestions ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border: 1px solid #ccc;
+    max-width: 300px;
+    background: #fff;
+    position: absolute; /* Vous pouvez gérer votre positionnement comme vous le souhaitez */
+}
+#suggestions li {
+    padding: 6px 10px;
+}
+#suggestions li:hover {
+    background-color: #eee;
+}
