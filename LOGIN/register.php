@@ -1,29 +1,49 @@
 <?php
+session_start();
 include 'connect.php';
 
 if (isset($_POST['signUp'])) {
-    $email = mysqli_real_escape_string($conn, $_POST['email']);
-    $password = mysqli_real_escape_string($conn, $_POST['password']);
+    // Récupérer les valeurs
+    $email = $_POST['email'] ?? '';
+    $password = $_POST['password'] ?? '';
     $hashed_password = md5($password);
 
-    // Vérifier si l'email existe déjà
-    $checkEmail = "SELECT * FROM Utilisateurs WHERE email='$email'";
-    $result = $conn->query($checkEmail);
+    try {
+        // Vérifier si l'email existe déjà
+        $stmtCheck = $pdo->prepare("SELECT * FROM Utilisateurs WHERE email = :email");
+        $stmtCheck->bindParam(':email', $email);
+        $stmtCheck->execute();
 
-    if ($result->num_rows > 0) {
-        echo "Email Address Already Exists!";
-    } else {
-        // Insérer l'utilisateur dans la base de données
-        $insertQuery = "INSERT INTO Utilisateurs (email, mot_de_passe, date_inscription, role) 
-                        VALUES ('$email', '$hashed_password', NOW(), 'utilisateur')";
-
-        if ($conn->query($insertQuery) === TRUE) {
-            echo "Registration successful! You can now log in.";
-            header("Location: index.php");
-            exit();
+        if ($stmtCheck->rowCount() > 0) {
+            echo "Email Address Already Exists!";
         } else {
-            echo "Error: " . $conn->error;
+            // Insérer l'utilisateur
+            $stmtInsert = $pdo->prepare(
+                "INSERT INTO Utilisateurs (email, mot_de_passe, date_inscription, role) 
+                 VALUES (:email, :hashed_password, NOW(), 'utilisateur')"
+            );
+            $stmtInsert->bindParam(':email', $email);
+            $stmtInsert->bindParam(':hashed_password', $hashed_password);
+
+            if ($stmtInsert->execute()) {
+                // Récupérer l'ID du nouvel utilisateur
+                $userId = $pdo->lastInsertId();
+
+                // Enregistrer l'ID utilisateur dans la session
+                $_SESSION['user_id'] = $userId;
+                $_SESSION['email'] = $email;
+
+                // Redirection
+                header("Location: choose_entreprise.php");
+                exit();
+            } else {
+                // Gérer l'erreur
+                $errorInfo = $stmtInsert->errorInfo();
+                echo "Error: " . $errorInfo[2];
+            }
         }
+    } catch (PDOException $e) {
+        echo "Erreur lors de l'enregistrement : " . $e->getMessage();
     }
 }
 ?>

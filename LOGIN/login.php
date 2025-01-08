@@ -3,21 +3,40 @@ session_start();
 include 'connect.php';
 
 if (isset($_POST['signIn'])) {
-    $email = mysqli_real_escape_string($conn, $_POST['email']);
-    $password = mysqli_real_escape_string($conn, $_POST['password']);
+    // On récupère les champs du formulaire
+    $email = $_POST['email'] ?? '';
+    $password = $_POST['password'] ?? '';
+
+    // On hashe le mot de passe (même méthode que dans votre code initial)
     $hashed_password = md5($password);
 
-    $sql = "SELECT * FROM Utilisateurs WHERE email='$email' AND mot_de_passe='$hashed_password'";
-    $result = $conn->query($sql);
+    try {
+        // On prépare une requête paramétrée pour éviter les injections SQL
+        $stmt = $pdo->prepare("SELECT * FROM Utilisateurs 
+                               WHERE email = :email 
+                               AND mot_de_passe = :hashed_password");
+        $stmt->bindParam(':email', $email);
+        $stmt->bindParam(':hashed_password', $hashed_password);
 
-    if ($result->num_rows > 0) {
-        $row = $result->fetch_assoc();
-        $_SESSION['email'] = $row['email'];
-        $_SESSION['user_id'] = $row['user_id'];
-        header("Location: ../index.php");
-        exit();
-    } else {
-        echo "Incorrect Email or Password!";
+        $stmt->execute();
+        $row = $stmt->fetch(PDO::FETCH_NAMED);
+
+        if ($row) {
+            // Si on a trouvé un utilisateur, on ouvre la session
+            $_SESSION['email']   = $row['email'];
+            $_SESSION['user_id'] = $row['user_id'];
+            $_SESSION['entreprise_id'] = $row['entreprise_id'];
+            echo ($row['entreprise_id']);
+
+            header("Location: ../index.php");
+            exit();
+        } else {
+            // Aucun résultat => identifiants incorrects
+            echo "Incorrect Email or Password!";
+        }
+    } catch (PDOException $e) {
+        echo "Erreur lors de la connexion : " . $e->getMessage();
     }
 }
 ?>
+
