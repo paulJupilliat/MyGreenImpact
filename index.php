@@ -59,6 +59,8 @@ include 'LOGIN/get_name_entreprise.php'
     elseif (isset($_SESSION['user_id'])){
         echo ('<a href= "LOGIN/choose_entreprise.php"> Se lier avec une entreprise</a>');
     }
+    //access to serius game
+    echo('<a href= "SERIOUS_GAME/action.php"> Play</a>')
     ?>
 
 </div>
