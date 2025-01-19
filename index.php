@@ -35,32 +35,34 @@ include 'LOGIN/get_name_entreprise.php'
 
     <?php if (isset($_SESSION['email'])): ?>
         <!-- Bouton Logout si connecté -->
-        <a href="LOGIN/logout.php" style="font-size:20px;">Logout</a>
-        <a href="LOGIN/delete_account.php" style="font-size:20px;"> Delete account </a>
+        <a href="http://macbook-air-de-paul.local/myGreenImpact/LOGIN/logout.php" style="font-size:20px;">Logout</a>
+        <a href="http://macbook-air-de-paul.local/myGreenImpact/LOGIN/delete_account.php" style="font-size:20px;"> Delete account </a>
+        <a href="http://macbook-air-de-paul.local/myGreenImpact/PROFILE/statistics_entreprise.php" style="font-size:20px;"> ViewStats </a>
     <?php else: ?>
         <!-- Bouton Login si non connecté -->
-        <a href="LOGIN/index.php" style="font-size:20px;">Login</a>
+        <a href="http://macbook-air-de-paul.local/myGreenImpact/LOGIN/index.php" style="font-size:20px;">Login</a>
     <?php endif; ?>
 
     <?php
+
     if (isset($_SESSION['entreprise_id'])){
         //affichage du nom de l'entreprise
-            $entreprise_id = $_SESSION['entreprise_id'];
-            //affichage du nom de l'entreprise
-            $entreprise_name = getEnterpriseNameById($pdo, $entreprise_id);
-            $_SESSION['entreprise_name'] = $entreprise_name;
-            if ($entreprise_name) {
-                echo "Le nom de l'entreprise est : " . htmlspecialchars($entreprise_name);
-                echo '<a href= "LOGIN/choose_entreprise.php"> Modifier</a>';
-            } else {
-                echo "Aucune entreprise trouvée pour cet ID.";
-            }
+        $entreprise_id = $_SESSION['entreprise_id'];
+        //affichage du nom de l'entreprise
+        $entreprise_name = getEnterpriseNameById($pdo, $entreprise_id);
+        $_SESSION['entreprise_name'] = $entreprise_name;
+        if ($entreprise_name) {
+            echo "Le nom de l'entreprise est : " . htmlspecialchars($entreprise_name);
+            echo '<a href= "http://macbook-air-de-paul.local/myGreenImpact/LOGIN/choose_entreprise.php"> Modifier</a>';
+        } else {
+            echo "Aucune entreprise trouvée pour cet ID.";
+        }
     }
     elseif (isset($_SESSION['user_id'])){
-        echo ('<a href= "LOGIN/choose_entreprise.php"> Se lier avec une entreprise</a>');
+        echo ('<a href= "http://macbook-air-de-paul.local/myGreenImpact/LOGIN/choose_entreprise.php"> Se lier avec une entreprise</a>');
     }
     //access to serius game
-    echo('<a href= "SERIOUS_GAME/action.php"> Play</a>')
+    echo('<a href= "http://macbook-air-de-paul.local/myGreenImpact/SERIOUS_GAME/action.php"> Play</a>')
     ?>
 
 </div>

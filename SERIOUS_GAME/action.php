@@ -28,8 +28,11 @@ if (isset($_POST['delete_action'])) {
 echo '<div style="margin-bottom: 20px;">';
 echo '<a href="' . $_SERVER['PHP_SELF'] . '" class="button' . (!isset($_GET['view']) ? ' active' : '') . '">Nouvelles Actions</a> ';
 echo '<a href="' . $_SERVER['PHP_SELF'] . '?view=completed" class="button' . (isset($_GET['view']) && $_GET['view'] === 'completed' ? ' active' : '') . '">Actions Réalisées</a>';
-echo '</div>';
 
+echo '</div>';
+echo '<div style="margin: 20px 0;">';
+echo '<a href="propose.php" class="button">Proposer une action</a>';
+echo '</div>';
 
 if (isset($_GET['view']) && $_GET['view'] === 'completed') {
     // Vue des actions réalisées
@@ -146,16 +149,22 @@ if (isset($_GET['view']) && $_GET['view'] === 'completed') {
             FROM Actions A
             WHERE A.domaine = :domaine
             AND NOT EXISTS (
-                SELECT 1 FROM Actions_Utilisateurs AU 
+                SELECT 1 
+                FROM Actions_Utilisateurs AU 
                 WHERE AU.action_id = A.action_id
+                AND AU.user_id = :user_id
             )
             AND NOT EXISTS (
-                SELECT 1 FROM Actions_Entreprise AE 
+                SELECT 1 
+                FROM Actions_Entreprise AE 
                 WHERE AE.action_id = A.action_id
+                AND AE.entreprise_id = :entreprise_id
             )
         ");
 
         $query->bindParam(':domaine', $selectedDomaine, PDO::PARAM_STR);
+        $query->bindParam(':user_id', $_SESSION['user_id'], PDO::PARAM_INT);
+        $query->bindParam(':entreprise_id', $_SESSION['entreprise_id'], PDO::PARAM_INT);
         $query->execute();
         $actions = $query->fetchAll(PDO::FETCH_ASSOC);
 

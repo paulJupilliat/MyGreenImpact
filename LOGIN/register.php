@@ -1,4 +1,5 @@
 <?php
+global $pdo;
 session_start();
 include 'connect.php';
 

@@ -1,0 +1,363 @@
+/* Styles de base : Mobile-first */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+/* Ajout de marges pour le contenu */
+main {
+    padding: 15px; /* Ajoute de l'espace autour du contenu principal */
+    flex-grow: 1;
+    overflow: visible;
+    display: block;
+    flex-direction: column;
+    overflow-y: visible; /* Permet le défilement si nécessaire */
+}
+
+/* Ajustements pour les écrans plus larges */
+@media (min-width: 768px) {
+    main {
+        padding: 20px 40px; /* Plus de marge sur les grands écrans */
+    }
+}
+
+html, body {
+    height: 100%; /* Garantir que la hauteur de la page couvre toute la fenêtre */
+    margin: 0; /* Supprimer les marges par défaut */
+    display: flex;
+    flex-direction: column; /* Disposer les éléments en colonne */
+    overflow-y: auto;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    flex-grow: 1; /* Permet au contenu principal de prendre tout l'espace restant */
+}
+
+header {
+    background-color: #f8f9fa;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.header-nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Bouton Connexion / Déconnexion */
+.btn-auth {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.btn-auth:hover {
+    background-color: #0056b3;
+}
+
+ul {
+    list-style-type: none;
+    /*padding-left: 0; /* Enlève aussi le retrait à gauche */
+}
+
+/* Sidenav menu */
+.sidenav {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: -250px;
+    background-color: #e8e8e8;
+    padding-top: 60px;
+    transition: left 0.5s ease;
+    border: 1px solid #444;
+  }
+  
+  .sidenav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* Sidenav menu links */
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #444;
+    display: block;
+    transition: 0.3s;
+
+  }
+  
+  .sidenav a:hover {
+    color: #111;
+  }
+  
+  /* Active class */
+  .sidenav.active {
+    left: 0;
+  }
+  
+  /* Close btn */
+  .sidenav .close {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+  }
+  
+  .burger-icon span {
+    display: block;
+    width: 35px;
+    height: 5px;
+    background-color: black;
+    margin: 6px 0;
+  }
+
+/* Styles pour les écrans plus larges */
+@media (min-width: 768px) {
+    header {
+        padding: 15px 20px;
+    }
+
+    .btn-auth {
+        padding: 10px 20px;
+        font-size: 18px;
+    }
+}
+
+h1 {
+    margin: 0;
+    font-size: 28px;
+    flex-grow: 1; /* Permet au titre de prendre l'espace restant */
+    text-align: center;
+}
+
+/* Style général pour les titres */
+h2, h3 {
+    margin-top: 20px; /* Espace avant le titre */
+    margin-bottom: 15px; /* Espace après le titre */
+    line-height: 1.4; /* Améliore la lisibilité */
+}
+
+/* Style pour les paragraphes */
+p {
+    margin-bottom: 12px; /* Ajoute de l'espace entre les paragraphes */
+    line-height: 1.6; /* Augmente l'interligne pour une meilleure lisibilité */
+    font-family: "Open Sans", Arial, sans-serif; /* Police moderne et lisible */
+    font-size: 18px; /* Taille confortable */
+    color: #444; /* Couleur douce pour éviter la fatigue visuelle */
+    text-align: justify; /* Justification du texte */
+}
+
+/* Espacement spécifique : entre un titre et un paragraphe */
+h2 + p, h3 + p{
+    margin-top: 10px;
+}
+
+input[type="checkbox"] {
+    transform: scale(1.5); /* Augmente la taille de la case à cocher par 1.5 fois */
+    margin-right: 5px; /* Ajouter un espace après la case à cocher */
+}
+
+li {
+    margin-top: 3px;   /* Espace au-dessus de chaque ligne */
+    margin-bottom: 2px; /* Espace en dessous de chaque ligne */
+}
+
+footer {
+    background-color: #333; /* Couleur de fond sombre */
+    color: #fff; /* Texte en blanc */
+    text-align: center; /* Centrer le contenu */
+    padding: 10px 0; /* Espacement interne */
+    font-size: 14px; /* Taille de texte */
+    width: 100%; /* Prendre toute la largeur */
+    margin-top: auto; /* Permet au footer de rester en bas */
+}
+
+footer a {
+    color: #d7d8d8; /* Couleur des liens */
+    text-decoration: none; /* Supprimer le soulignement */
+    margin-left: 10px; /* Petit espace entre le texte et le lien */
+}
+
+
+footer p {
+    color: white;
+    text-align: center; /* Centrer le contenu */
+    font-size: 14px; /* Taille de texte */
+}
+
+.accordion-header {
+    background-color: #f2f2f2;
+    color: #333;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+  }
+  
+  .accordion-header:hover {
+    background-color: #ddd;
+  }
+  
+  .accordion-header i {
+    margin-right: 10px;
+  }
+  
+  .accordion-content {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0; /* Masque le contenu par défaut */
+    overflow: hidden; /* Évite le débordement du contenu */
+    transition: max-height 0.2s ease-out; /* Transition fluide */
+  }
+
+  .accordion-header.active + .accordion-content {
+    max-height: 100%; /* Ajustez selon la hauteur maximale attendue */
+}
+
+.accordion-container {
+    flex-grow: 1;
+    overflow-y: auto; /* Évite que l'accordéon bloque l'affichage */
+}
+  
+  @media (max-width: 767px) {
+    .accordion-header {
+      font-size: 18px;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .accordion-header {
+      font-size: 22px;
+    }
+  }
+
+  /* Conteneur pour le graphique */
+.chart-container {
+    max-width: 400px; /* Limite la largeur pour les grands écrans */
+    margin: 20px auto; /* Centre le graphique */
+    padding: 10px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Section encadrée */
+.section-card {
+    margin: 20px 0;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.section-card h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+/* Boutons standards */
+.btn-action {
+    display: block;
+    width: 90%;
+    margin: 10px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #333;
+    background-color: #fff;
+    border: 2px solid #333;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.btn-action:hover {
+    background-color: #f0f0f0;
+    border-color: #0056b3;
+}
+
+/* Bouton pour créer une équipe */
+.btn-create {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #333;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-create:hover {
+    background-color: #0056b3;
+}
+
+/* Adaptation pour les grands écrans */
+@media (min-width: 768px) {
+    .chart-container {
+        max-width: 600px; /* Étend légèrement le graphique pour les écrans larges */
+    }
+}
+
+
+
+
+/*STATS PROGRESS BAR*/
+.progress-bars {
+    margin-top: 20px;
+}
+
+.progress-container {
+    margin-bottom: 15px;
+}
+
+.progress-label {
+    font-size: 14px;
+    margin-bottom: 5px;
+    display: block;
+    font-weight: bold;
+}
+
+.progress-bar {
+    width: 100%;
+    background-color: #f3f3f3;
+    border-radius: 5px;
+    overflow: hidden;
+    height: 20px;
+    position: relative;
+}
+
+.progress {
+    height: 100%;
+    background-color: #36a2eb;
+    width: 0;
+    transition: width 0.5s ease-in-out;
+    border-radius: 5px;
+}
+
+
